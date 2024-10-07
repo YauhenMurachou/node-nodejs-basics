@@ -7,7 +7,7 @@ const performCalculations = async () => {
   const results = new Array(numCores);
 
   for (let i = 0; i < numCores; i++) {
-    const worker = new Worker('worker.js');
+    const worker = new Worker('./worker.js');
     workers.push(worker);
 
     worker.on('message', (message) => {
@@ -18,7 +18,8 @@ const performCalculations = async () => {
       }
     });
 
-    worker.on('error', () => {
+    worker.on('error', (err) => {
+      console.error(`Worker ${i} encountered an error:`, err);
       results[i] = { status: 'error', data: null };
     });
 
