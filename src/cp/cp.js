@@ -1,7 +1,7 @@
 import { spawn } from 'child_process';
 import fs from 'fs';
 
-async function spawnChildProcess(args) {
+const  spawnChildProcess = async(args) => {
   if (!fs.existsSync('src/cp/files/script.js')) {
     throw new Error('script.js not found.');
   }
