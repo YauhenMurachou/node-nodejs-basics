@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const filename = import.meta.url;
 const dirname = path.dirname(fileURLToPath(filename));
 
-const listFiles = async () => {
+const list = async () => {
   try {
     const filesDir = path.join(dirname, '.', 'files');
     const files = await promises.readdir(filesDir);
@@ -20,4 +20,4 @@ const listFiles = async () => {
   }
 };
 
-await listFiles();
+await list();

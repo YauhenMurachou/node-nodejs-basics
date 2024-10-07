@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const filename = import.meta.url;
 const dirname = path.dirname(fileURLToPath(filename));
 
-const readFile = async () => {
+const read = async () => {
   try {
     const filePath = path.join(dirname, '.', 'files', 'fileToRead.txt');
     const content = await promises.readFile(filePath, 'utf8');
@@ -20,4 +20,4 @@ const readFile = async () => {
   }
 };
 
-await readFile();
+await read();
